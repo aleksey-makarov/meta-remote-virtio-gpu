@@ -27,7 +27,7 @@ S = "${WORKDIR}/git"
 
 # export KDIR = "${STAGING_KERNEL_DIR}"
 
-do_configure_prepend () {
+do_configure:prepend () {
     cp ${WORKDIR}/Makefile ${S}
 }
 # 
@@ -52,12 +52,12 @@ do_configure_prepend () {
 #     ${PN}-dev \
 # "
 
-# FILES_${PN} = " \
+# FILES:${PN} = " \
 #     /lib/modules/${KERNEL_VERSION}/extra/virtio_lo.ko \
 #     ${sysconfdir}/modules-load.d \
 # "
 
-# RPROVIDES_${PN} += "kernel-module-virtio-lo"
+# RPROVIDES:${PN} += "kernel-module-virtio-lo"
 
 # # Autoload virtio lo driver
-# KERNEL_MODULE_AUTOLOAD_append = " virtio_lo"
+# KERNEL_MODULE_AUTOLOAD:append = " virtio_lo"
