@@ -1,8 +1,8 @@
 DESCRIPTION = "Virtio loopback kernel module"
 SUMMARY = "Virtio loopback kernel module"
 SECTION = "kernel"
-LICENSE = "GPLv2"
-LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-or-later;md5=fed54355545ffd980b814dab4a3b312c"
+LICENSE = "GPL-2.0-only"
+LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171dd6425610833a22dbe6"
 
 # SRC_URI = "git://git@floral.opensynergy.com/E0672/proj-e0672/remote-virtio-gpu.git;protocol=ssh file://Makefile"
 
@@ -46,6 +46,12 @@ do_configure:prepend () {
 #     # Install shared header file
 #     install -m 644 ${VIRTIOLO_DRV_DIR}/include/uapi/linux/virtio_lo.h ${D}/${includedir}/linux/
 # }
+
+do_install:append () {
+    install -d ${D}/${includedir}/linux
+	install -m 644 ${WORKDIR}/git/virtio_lo.h ${D}/${includedir}/linux/
+}
+
 
 # PACKAGES = " \
 #     ${PN} \
