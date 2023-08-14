@@ -10,4 +10,9 @@ inherit core-image
 # CORE_IMAGE_BASE_INSTALL += "gtk+3-demo"
 # CORE_IMAGE_BASE_INSTALL += "${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'weston-xwayland matchbox-terminal', '', d)}"
 
+CORE_IMAGE_EXTRA_INSTALL += "remote-virtio-gpu kernel-module-virtio-lo"
+# IMAGE_INSTALL:append = " kernel-module-virtio-lo"
+
+KERNEL_MODULE_AUTOLOAD += "kernel-module-virtio-lo"
+
 QB_MEM = "-m 4G"
