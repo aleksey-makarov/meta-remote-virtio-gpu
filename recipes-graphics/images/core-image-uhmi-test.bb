@@ -13,6 +13,6 @@ inherit core-image
 CORE_IMAGE_EXTRA_INSTALL += "remote-virtio-gpu kernel-module-virtio-lo"
 # IMAGE_INSTALL:append = " kernel-module-virtio-lo"
 
-KERNEL_MODULE_AUTOLOAD += "kernel-module-virtio-lo"
+KERNEL_MODULE_AUTOLOAD += "virtio-lo"
 
 QB_MEM = "-m 4G"
